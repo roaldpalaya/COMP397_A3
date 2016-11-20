@@ -4,7 +4,9 @@
 module config {
     export class Scene {
         public static MENU : number = 0;
-        public static SHOOTER : number = 1;
+        public static INSTRUCTION : number =1;
+        public static GAME : number = 2;
+        public static GAMEOVER : number=3;
     }
 
     export class Screen {

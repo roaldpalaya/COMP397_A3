@@ -37,7 +37,7 @@ module scenes {
         }
 
         private _playBtnClick(event : createjs.MouseEvent) {
-            scene = config.Scene.SHOOTER;
+            scene = config.Scene.GAME;
             changeScene();
         }
     }

@@ -18,6 +18,7 @@ var assetData:objects.Asset[] = [
     {id: "Play_BG", src:"../../Assets/images/bg.png"},
     {id: "Menu_BG", src:"../../Assets/images/menuBG.png"},
     {id: "PlayBtn", src:"../../Assets/images/playBtn.png"},
+    {id: "MenuBtn", src:"../../Assets/images/menuBtn.png"},
     {id: "Player", src:"../../Assets/images/shipAtlas.png"}
 ];
 
@@ -101,10 +102,20 @@ function changeScene() : void {
             currentScene = new scenes.Menu();;
             console.log("Starting MENU scene");
             break;
-        case config.Scene.SHOOTER :
+        case config.Scene.INSTRUCTION :
             stage.removeAllChildren();
-            currentScene = new scenes.Shooter();
+            currentScene = new scenes.Instruction();;
+            console.log("Starting Instruction scene");
+            break;
+        case config.Scene.GAME :
+            stage.removeAllChildren();
+            currentScene = new scenes.Game();
             console.log("Starting SHOOTER scene");
+            break;
+        case config.Scene.GAMEOVER :
+            stage.removeAllChildren();
+            currentScene = new scenes.GameOver();
+            console.log("Starting Gameover scene");
             break;
     }
     

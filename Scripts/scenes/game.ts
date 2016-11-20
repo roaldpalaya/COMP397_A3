@@ -1,5 +1,5 @@
 module scenes {
-    export class Shooter extends objects.Scene {
+    export class Game extends objects.Scene {
 
         private _bg : createjs.Bitmap;
         private _ship : objects.Player;
