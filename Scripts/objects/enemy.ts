@@ -11,7 +11,7 @@ module objects {
         public center:objects.Vector2;
 
         constructor(imageString:string) {
-            super(imageString, "explode");
+            super(imageString, "");
 
             this.name = "enemy";
             this.position = new objects.Vector2(config.Screen.WIDTH, config.Screen.CENTER_Y);

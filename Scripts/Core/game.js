@@ -13,6 +13,7 @@ var assetData = [
     { id: "Play_BG", src: "../../Assets/images/bg.png" },
     { id: "Menu_BG", src: "../../Assets/images/menuBG.png" },
     { id: "PlayBtn", src: "../../Assets/images/playBtn.png" },
+    { id: "MenuBtn", src: "../../Assets/images/menuBtn.png" },
     { id: "Player", src: "../../Assets/images/shipAtlas.png" }
 ];
 function preload() {
@@ -33,34 +34,37 @@ function init() {
     collision = new managers.Collision();
     var atlasData = {
         "images": [
-            assets.getResult("Player")
+            "atlas.png"
         ],
         "frames": [
-            [1, 1, 180, 180, 0, 0, 0],
-            [183, 1, 176, 175, 0, 0, 0],
-            [361, 1, 172, 163, 0, 0, 0],
-            [535, 1, 166, 154, 0, 0, 0],
-            [703, 1, 157, 154, 0, 0, 0],
-            [862, 1, 122, 112, 0, 0, 0],
-            [862, 115, 129, 111, 0, 0, 0],
-            [535, 157, 69, 71, 0, 0, 0],
-            [361, 166, 50, 6, 0, 0, -17],
-            [413, 166, 42, 43, 0, 0, 0],
-            [361, 174, 42, 33, 0, 0, 0],
-            [457, 166, 42, 22, 0, 0, 0]
+            [1, 1, 200, 193, 0, -9, -5],
+            [203, 1, 149, 145, 0, -33, 0],
+            [203, 148, 183, 90, 0, -5, -59],
+            [354, 1, 148, 143, 0, -27, -19],
+            [388, 146, 170, 90, 0, -17, -48],
+            [504, 1, 149, 132, 0, -32, -27],
+            [560, 135, 107, 107, 0, -7, -7],
+            [655, 1, 149, 126, 0, -31, -31],
+            [669, 129, 149, 112, 0, -38, -39],
+            [806, 1, 176, 124, 0, -16, -28],
+            [820, 127, 149, 111, 0, -33, -38],
+            [971, 127, 143, 110, 0, -37, -53],
+            [984, 1, 148, 122, 0, -29, -31],
+            [1116, 125, 183, 116, 0, -5, -44],
+            [1134, 1, 149, 121, 0, -31, -38],
+            [1285, 1, 165, 119, 0, -2, -2],
+            [1301, 122, 148, 108, 0, -36, -51]
         ],
         "animations": {
-            "explode": {
-                "frames": [7, 6, 3, 0, 1, 2, 4], "speed": 0.1, next: false
+            "fly": {
+                "frames": [1, 3, 5, 9, 2, 14, 7, 12, 10, 8, 11, 16, 4, 13], "speed": 0.1, "next": false
             },
-            "enemy": { "frames": [5] },
-            "laser": { "frames": [8] },
-            "ship": { "frames": [9] },
-            "ship_L1": { "frames": [10] },
-            "ship_L2": { "frames": [11] }
+            "star": { "frames": [0] },
+            "bread": { "frames": [6] },
+            "cloud": { "frames": [15] }
         },
         "texturepacker": [
-            "SmartUpdateHash: $TexturePacker:SmartUpdate:013a2fc3dc6ba39276db3e6758d1ddbd:84789f29f2d01b3ea1c113a3b2d1bfdc:e696b1a5c9e543dbf26d7c8d29a6d04f$",
+            "SmartUpdateHash: $TexturePacker:SmartUpdate:3fdfb28ea3e496a5b39668b1246b936d:623e3dbe6f063388ac13cc113a77618e:cbce6b53f0f49e0bf15173c25c41f876$",
             "Created with TexturePacker (https://www.codeandweb.com/texturepacker) for EaselJS"
         ]
     };
@@ -82,10 +86,21 @@ function changeScene() {
             ;
             console.log("Starting MENU scene");
             break;
-        case config.Scene.SHOOTER:
+        case config.Scene.INSTRUCTION:
             stage.removeAllChildren();
-            currentScene = new scenes.Shooter();
+            currentScene = new scenes.Instruction();
+            ;
+            console.log("Starting Instruction scene");
+            break;
+        case config.Scene.GAME:
+            stage.removeAllChildren();
+            currentScene = new scenes.Game();
             console.log("Starting SHOOTER scene");
+            break;
+        case config.Scene.GAMEOVER:
+            stage.removeAllChildren();
+            currentScene = new scenes.GameOver();
+            console.log("Starting Gameover scene");
             break;
     }
 }

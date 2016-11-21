@@ -10,9 +10,9 @@ module config {
     }
 
     export class Screen {
-        public static WIDTH : number = 1024;
+        public static WIDTH : number = 512;
         public static HEIGHT : number = 480;
-        public static CENTER_X : number = 512;
+        public static CENTER_X : number = 256;
         public static CENTER_Y : number = 240;
     }
     

@@ -15,7 +15,7 @@ module objects {
         public centerY:number;
 
         constructor(imageString:string) {
-            super(imageString, "");
+            super(imageString, "fly");
 
             this._shots = [];
 

@@ -5,31 +5,30 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var scenes;
 (function (scenes) {
-    var Shooter = (function (_super) {
-        __extends(Shooter, _super);
-        function Shooter() {
+    var Game = (function (_super) {
+        __extends(Game, _super);
+        function Game() {
             _super.call(this);
         }
-        Shooter.prototype.start = function () {
-            this._bg = new createjs.Bitmap(assets.getResult("Space_BG"));
+        Game.prototype.start = function () {
+            this._bg = new createjs.Bitmap(assets.getResult("Play_BG"));
             this.addChild(this._bg);
-            this._ship = new objects.Player("ship");
-            this.addChild(this._ship);
+            this._bird = new objects.Player("fly");
+            this.addChild(this._bird);
             this._enemy = new objects.Enemy("enemy");
             this.addChild(this._enemy);
             stage.addChild(this);
         };
-        Shooter.prototype.update = function () {
+        Game.prototype.update = function () {
             // Check collisions
-            for (var _i = 0, _a = this._ship.getShots; _i < _a.length; _i++) {
-                var i = _a[_i];
-                collision.check(i, this._enemy);
-            }
-            this._ship.update();
+            // for(let i of this._ship.getShots) {
+            //     collision.check(i, this._enemy);
+            // }
+            this._bird.update();
             this._enemy.update();
         };
-        return Shooter;
+        return Game;
     }(objects.Scene));
-    scenes.Shooter = Shooter;
+    scenes.Game = Game;
 })(scenes || (scenes = {}));
 //# sourceMappingURL=game.js.map

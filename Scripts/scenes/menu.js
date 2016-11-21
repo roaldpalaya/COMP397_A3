@@ -29,7 +29,7 @@ var scenes;
         Menu.prototype.update = function () {
         };
         Menu.prototype._playBtnClick = function (event) {
-            scene = config.Scene.SHOOTER;
+            scene = config.Scene.GAME;
             changeScene();
         };
         return Menu;
