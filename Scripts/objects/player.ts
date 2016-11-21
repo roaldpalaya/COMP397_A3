@@ -20,6 +20,7 @@ module objects {
             this._shots = [];
 
             //this.start();
+            this.position = new objects.Vector2(config.Screen.WIDTH-650, config.Screen.CENTER_Y);
             this.width = this.getBounds().width;
             this.height = this.getBounds().height;
 
@@ -35,7 +36,7 @@ module objects {
             super.update();
 
             this._timer += createjs.Ticker.interval;
-
+            
 
             if(controls.UP) {
                 this.moveUp();
@@ -45,21 +46,7 @@ module objects {
                 this.moveDown();
             }
 
-            if(controls.RIGHT) {
-                this.moveRight();
-            }
-
-            if(controls.LEFT) {
-                this.moveLeft();
-            }
-            if(controls.SHOOT && this._timer > 100.0) {
-                let newLaser = new objects.Laser();
-                newLaser.setPosition(new objects.Vector2(this.position.x + 25, this.position.y - 18));
-                currentScene.addChild(newLaser);
-                this._shots.push(newLaser);
-
-                this._timer = 0.0;
-            }
+            
 
             for (let laser of this._shots) {
                 laser.update();
@@ -78,17 +65,7 @@ module objects {
                     console.log("S key pressed");
                     controls.DOWN = true;
                     break;
-                case keys.A:
-                    console.log("A key pressed");
-                    controls.LEFT = true;
-                    break;
-                case keys.D:
-                    console.log("D key pressed");
-                    controls.RIGHT = true;
-                    break;
-                case keys.SPACE:
-                    controls.SHOOT = true;
-                    break;
+               
             }
         }
 
@@ -100,15 +77,7 @@ module objects {
                 case keys.S:
                     controls.DOWN = false;
                     break;
-                case keys.A:
-                    controls.LEFT = false;
-                    break;
-                case keys.D:
-                    controls.RIGHT = false;
-                    break;
-                case keys.SPACE:
-                    controls.SHOOT = false;
-                    break;
+               
             }
         }
 
@@ -120,12 +89,6 @@ module objects {
             this.position.y += 5;
         }
 
-        public moveLeft() {
-            this.position.x -= 5;
-        }
-
-        public moveRight() {
-            this.position.x += 5;
-        }
+       
     }
 }

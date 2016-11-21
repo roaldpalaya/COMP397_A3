@@ -62,7 +62,7 @@ module objects {
         }
 
         constructor(imageString : string, deathAnimString) {
-            super(shipAtlas, imageString);
+            super(birdAtlas, imageString);
 
             this._deathAnim = deathAnimString;
 
@@ -77,20 +77,22 @@ module objects {
             this.regX = this.width / 2;
             this.regY = this.height / 2;
             this.position = new Vector2(this.x, this.y);
+            this.gotoAndPlay(this._deathAnim);
         }
 
         public start():void {}
         public update():void {
             this.x = this.position.x;
             this.y = this.position.y;
-
-            if(this.currentAnimationFrame == shipAtlas.getNumFrames("explode") - 1) {
+           // this.gotoAndPlay(this._deathAnim);
+            if(this.currentAnimationFrame == birdAtlas.getNumFrames("fly") - 1) {
                 currentScene.removeChild(this);
             }
+            
         }
 
         public destroy() : void {
-            this.gotoAndPlay(this._deathAnim);
+            
             // currentScene.removeChild(this);
         }
     }

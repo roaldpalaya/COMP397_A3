@@ -8,9 +8,9 @@ var objects;
     var Enemy = (function (_super) {
         __extends(Enemy, _super);
         function Enemy(imageString) {
-            _super.call(this, imageString, "");
-            this.name = "enemy";
-            this.position = new objects.Vector2(config.Screen.WIDTH, config.Screen.CENTER_Y);
+            _super.call(this, imageString, "cloud");
+            this.name = "cloud";
+            this.position = new objects.Vector2(config.Screen.WIDTH, Math.floor(Math.random() * 450));
             this.regX = this.getBounds().width * 0.5;
             this.regY = this.getBounds().height * 0.5;
             this._speed = 1;

@@ -6,7 +6,7 @@ var canvas: HTMLElement;
 var stage: createjs.Stage;
 
 var spriteSheetLoader : createjs.SpriteSheetLoader;
-var shipAtlas : createjs.SpriteSheet;
+var birdAtlas : createjs.SpriteSheet;
 
 var currentScene : objects.Scene;
 var scene: number;
@@ -18,8 +18,8 @@ var assetData:objects.Asset[] = [
     {id: "Play_BG", src:"../../Assets/images/bg.png"},
     {id: "Menu_BG", src:"../../Assets/images/menuBG.png"},
     {id: "PlayBtn", src:"../../Assets/images/playBtn.png"},
-    {id: "MenuBtn", src:"../../Assets/images/menuBtn.png"},
-    {id: "Player", src:"../../Assets/images/shipAtlas.png"}
+    //{id: "MenuBtn", src:"../../Assets/images/menuBtn.png"},
+    {id: "Player", src:"../../Assets/images/0.png"}
 ];
 
 function preload() {
@@ -46,7 +46,7 @@ function init() {
     let atlasData = {
             
         "images": [
-            "atlas.png"
+            "../../Assets/images/atlas.png"
         ],
 
         "frames": [
@@ -71,7 +71,7 @@ function init() {
 
         "animations": {
             "fly": {
-                        "frames": [1,3,5,9,2,14,7,12,10,8,11,16,4,13], "speed": 0.1, "next": false
+                        "frames": [1,3,5,9,2,14,7,12,10,8,11,16,4,13], "speed": 0.3, "next": true
                     },
             "star": { "frames": [0] },
             "bread": { "frames": [6] },
@@ -85,7 +85,7 @@ function init() {
 
     }
 
-    shipAtlas = new createjs.SpriteSheet(atlasData);
+    birdAtlas = new createjs.SpriteSheet(atlasData);
     scene = config.Scene.MENU;
     changeScene();
 }

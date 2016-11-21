@@ -8,7 +8,7 @@ var objects;
     var GameObject = (function (_super) {
         __extends(GameObject, _super);
         function GameObject(imageString, deathAnimString) {
-            _super.call(this, shipAtlas, imageString);
+            _super.call(this, birdAtlas, imageString);
             this._deathAnim = deathAnimString;
             this._initialize(imageString);
             this.start();
@@ -89,17 +89,18 @@ var objects;
             this.regX = this.width / 2;
             this.regY = this.height / 2;
             this.position = new objects.Vector2(this.x, this.y);
+            this.gotoAndPlay(this._deathAnim);
         };
         GameObject.prototype.start = function () { };
         GameObject.prototype.update = function () {
             this.x = this.position.x;
             this.y = this.position.y;
-            if (this.currentAnimationFrame == shipAtlas.getNumFrames("explode") - 1) {
+            // this.gotoAndPlay(this._deathAnim);
+            if (this.currentAnimationFrame == birdAtlas.getNumFrames("fly") - 1) {
                 currentScene.removeChild(this);
             }
         };
         GameObject.prototype.destroy = function () {
-            this.gotoAndPlay(this._deathAnim);
             // currentScene.removeChild(this);
         };
         return GameObject;

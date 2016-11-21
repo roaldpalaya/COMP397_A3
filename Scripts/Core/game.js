@@ -4,7 +4,7 @@ var assets;
 var canvas;
 var stage;
 var spriteSheetLoader;
-var shipAtlas;
+var birdAtlas;
 var currentScene;
 var scene;
 var collision;
@@ -13,8 +13,8 @@ var assetData = [
     { id: "Play_BG", src: "../../Assets/images/bg.png" },
     { id: "Menu_BG", src: "../../Assets/images/menuBG.png" },
     { id: "PlayBtn", src: "../../Assets/images/playBtn.png" },
-    { id: "MenuBtn", src: "../../Assets/images/menuBtn.png" },
-    { id: "Player", src: "../../Assets/images/shipAtlas.png" }
+    //{id: "MenuBtn", src:"../../Assets/images/menuBtn.png"},
+    { id: "Player", src: "../../Assets/images/0.png" }
 ];
 function preload() {
     // Create a queue for assets being loaded
@@ -34,7 +34,7 @@ function init() {
     collision = new managers.Collision();
     var atlasData = {
         "images": [
-            "atlas.png"
+            "../../Assets/images/atlas.png"
         ],
         "frames": [
             [1, 1, 200, 193, 0, -9, -5],
@@ -57,7 +57,7 @@ function init() {
         ],
         "animations": {
             "fly": {
-                "frames": [1, 3, 5, 9, 2, 14, 7, 12, 10, 8, 11, 16, 4, 13], "speed": 0.1, "next": false
+                "frames": [1, 3, 5, 9, 2, 14, 7, 12, 10, 8, 11, 16, 4, 13], "speed": 0.3, "next": true
             },
             "star": { "frames": [0] },
             "bread": { "frames": [6] },
@@ -68,7 +68,7 @@ function init() {
             "Created with TexturePacker (https://www.codeandweb.com/texturepacker) for EaselJS"
         ]
     };
-    shipAtlas = new createjs.SpriteSheet(atlasData);
+    birdAtlas = new createjs.SpriteSheet(atlasData);
     scene = config.Scene.MENU;
     changeScene();
 }

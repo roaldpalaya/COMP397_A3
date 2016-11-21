@@ -13,6 +13,7 @@ var objects;
             this._timer = 0;
             this._shots = [];
             //this.start();
+            this.position = new objects.Vector2(config.Screen.WIDTH - 650, config.Screen.CENTER_Y);
             this.width = this.getBounds().width;
             this.height = this.getBounds().height;
             window.onkeydown = this._onKeyDown;
@@ -34,19 +35,6 @@ var objects;
             if (controls.DOWN) {
                 this.moveDown();
             }
-            if (controls.RIGHT) {
-                this.moveRight();
-            }
-            if (controls.LEFT) {
-                this.moveLeft();
-            }
-            if (controls.SHOOT && this._timer > 100.0) {
-                var newLaser = new objects.Laser();
-                newLaser.setPosition(new objects.Vector2(this.position.x + 25, this.position.y - 18));
-                currentScene.addChild(newLaser);
-                this._shots.push(newLaser);
-                this._timer = 0.0;
-            }
             for (var _i = 0, _a = this._shots; _i < _a.length; _i++) {
                 var laser = _a[_i];
                 laser.update();
@@ -63,17 +51,6 @@ var objects;
                     console.log("S key pressed");
                     controls.DOWN = true;
                     break;
-                case keys.A:
-                    console.log("A key pressed");
-                    controls.LEFT = true;
-                    break;
-                case keys.D:
-                    console.log("D key pressed");
-                    controls.RIGHT = true;
-                    break;
-                case keys.SPACE:
-                    controls.SHOOT = true;
-                    break;
             }
         };
         Player.prototype._onKeyUp = function (event) {
@@ -84,15 +61,6 @@ var objects;
                 case keys.S:
                     controls.DOWN = false;
                     break;
-                case keys.A:
-                    controls.LEFT = false;
-                    break;
-                case keys.D:
-                    controls.RIGHT = false;
-                    break;
-                case keys.SPACE:
-                    controls.SHOOT = false;
-                    break;
             }
         };
         Player.prototype.moveUp = function () {
@@ -100,12 +68,6 @@ var objects;
         };
         Player.prototype.moveDown = function () {
             this.position.y += 5;
-        };
-        Player.prototype.moveLeft = function () {
-            this.position.x -= 5;
-        };
-        Player.prototype.moveRight = function () {
-            this.position.x += 5;
         };
         return Player;
     }(objects.GameObject));
