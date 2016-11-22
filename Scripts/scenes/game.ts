@@ -27,6 +27,11 @@ module scenes {
             // for(let i of this._ship.getShots) {
             //     collision.check(i, this._enemy);
             // }
+            this._bg.x-=4;
+            if(this._bg.x<-800){
+                this._bg.x=0;
+                this._bg.x-=4;
+            }
 
             this._bird.update();
             this._enemy.update();

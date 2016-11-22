@@ -39,11 +39,20 @@ module objects {
             
 
             if(controls.UP) {
-                this.moveUp();
+                if(this.position.y <=90){
+                   this.position.y+=0;
+                }
+                else{
+                this.moveUp();}
             }
             
             if(controls.DOWN) {
-                this.moveDown();
+                if(this.position.y >=500){
+                   this.position.y+=0;
+                }
+                else{
+                this.moveDown();}
+                
             }
 
             

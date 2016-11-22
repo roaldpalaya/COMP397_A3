@@ -30,10 +30,20 @@ var objects;
             _super.prototype.update.call(this);
             this._timer += createjs.Ticker.interval;
             if (controls.UP) {
-                this.moveUp();
+                if (this.position.y <= 90) {
+                    this.position.y += 0;
+                }
+                else {
+                    this.moveUp();
+                }
             }
             if (controls.DOWN) {
-                this.moveDown();
+                if (this.position.y >= 500) {
+                    this.position.y += 0;
+                }
+                else {
+                    this.moveDown();
+                }
             }
             for (var _i = 0, _a = this._shots; _i < _a.length; _i++) {
                 var laser = _a[_i];

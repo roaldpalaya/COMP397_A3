@@ -13,11 +13,21 @@ var objects;
             this.position = new objects.Vector2(config.Screen.WIDTH, Math.floor(Math.random() * 450));
             this.regX = this.getBounds().width * 0.5;
             this.regY = this.getBounds().height * 0.5;
-            this._speed = 1;
+            this._speed = 3;
+            this._counter = 1;
+            // while(this._counter<4){
+            //     super(imageString, "cloud");
+            //     this._counter ++;
+            // }
         }
+        Enemy.prototype._spawn = function () {
+        };
         Enemy.prototype.update = function () {
             _super.prototype.update.call(this);
             this.position.x -= this._speed;
+            if (this.position.x < 0) {
+                currentScene.removeChild(this);
+            }
         };
         return Enemy;
     }(objects.GameObject));
