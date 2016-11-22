@@ -13,7 +13,8 @@ var assetData = [
     { id: "Play_BG", src: "../../Assets/images/bg.png" },
     { id: "Menu_BG", src: "../../Assets/images/menuBG.png" },
     { id: "PlayBtn", src: "../../Assets/images/playBtn.png" },
-    //{id: "MenuBtn", src:"../../Assets/images/menuBtn.png"},
+    { id: "InstBtn", src: "../../Assets/images/instBtn.png" },
+    { id: "MenuBtn", src: "../../Assets/images/menuBtn.png" },
     { id: "Player", src: "../../Assets/images/0.png" }
 ];
 function preload() {

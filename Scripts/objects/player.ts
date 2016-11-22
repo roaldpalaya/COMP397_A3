@@ -6,6 +6,7 @@ module objects {
 
         private _timeBetweenShots : number = 1;
         private _timer : number = 0;
+        private _life : number = 5;
 
         // PUBLIC VARIABLES
         public name:string;
@@ -47,7 +48,7 @@ module objects {
             }
             
             if(controls.DOWN) {
-                if(this.position.y >=500){
+                if(this.position.y >=485){
                    this.position.y+=0;
                 }
                 else{

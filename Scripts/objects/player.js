@@ -11,6 +11,7 @@ var objects;
             _super.call(this, imageString, "fly");
             this._timeBetweenShots = 1;
             this._timer = 0;
+            this._life = 5;
             this._shots = [];
             //this.start();
             this.position = new objects.Vector2(config.Screen.WIDTH - 650, config.Screen.CENTER_Y);
@@ -38,7 +39,7 @@ var objects;
                 }
             }
             if (controls.DOWN) {
-                if (this.position.y >= 500) {
+                if (this.position.y >= 485) {
                     this.position.y += 0;
                 }
                 else {

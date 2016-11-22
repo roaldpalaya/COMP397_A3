@@ -9,7 +9,7 @@ module scenes {
         }
 
         public start() : void {
-            this._bg = new createjs.Bitmap(assets.getResult("Space_BG"));
+            this._bg = new createjs.Bitmap(assets.getResult("Menu_BG"));
             this.addChild(this._bg);
             this._menuBtn=new objects.Button("MenuBtn", config.Screen.CENTER_X, config.Screen.CENTER_Y + 150);
             this.addChild(this._menuBtn);

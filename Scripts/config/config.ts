@@ -11,9 +11,9 @@ module config {
 
     export class Screen {
         public static WIDTH : number = 720;
-        public static HEIGHT : number = 720;
+        public static HEIGHT : number = 600;
         public static CENTER_X : number = 360;
-        public static CENTER_Y : number = 360;
+        public static CENTER_Y : number = 300;
     }
     
     export class Game {
