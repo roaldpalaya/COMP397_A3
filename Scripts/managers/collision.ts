@@ -1,5 +1,6 @@
 module managers {
     export class Collision {
+        
         constructor() {
             this.start();
         }
@@ -19,6 +20,7 @@ module managers {
                 coll.tr_corner.y < objColliding.bl_corner.y &&
                 coll.br_corner.y > objColliding.tl_corner.y) {
                     this.destroy(objColliding);
+
                 }
 
             /*
@@ -35,7 +37,7 @@ module managers {
             */
         }
 
-        private destroy(objToDestroy : objects.GameObject) : void {
+        public destroy(objToDestroy : objects.GameObject) : void {
             objToDestroy.destroy();
         }
     }

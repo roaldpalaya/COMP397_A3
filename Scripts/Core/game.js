@@ -58,7 +58,7 @@ function init() {
         ],
         "animations": {
             "fly": {
-                "frames": [1, 3, 5, 9, 2, 14, 7, 12, 10, 8, 11, 16, 4, 13], "speed": 0.3, "next": true
+                "frames": [1, 3, 5, 9, 2, 14, 7, 12, 10, 8, 11, 16, 4, 13], "speed": 0.2, "next": true
             },
             "star": { "frames": [0] },
             "bread": { "frames": [6] },
