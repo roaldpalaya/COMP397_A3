@@ -8,10 +8,14 @@ module scenes {
         private _scoreLbl :objects.Label;
         private _lifeLbl : objects.Label;
         private _countLbl :objects.Label;
-        private _life : number;
+        private _life : number=6;
+        private _lifenum : number=0;
         private _timer : number=0;
-        private _score:number;
-        private _countdown : number;
+        private _counter : number=60;
+        private _score:number=0;
+        private _scorenum:number=0;
+        private _countdown : number=0;
+        private test: boolean =false;
         constructor() {
             super();
         }
@@ -19,7 +23,7 @@ module scenes {
         public start() : void {
 
             this._life=5;
-            this._countdown=60;
+            this._counter=60.0;
             this._score=0;
             //create and add background
             this._bg = new createjs.Bitmap(assets.getResult("Play_BG"));
@@ -37,24 +41,35 @@ module scenes {
             //create and add labels
             this._lifeLbl = new objects.Label("life: " +this._life ,"30px Consolar", "#000000",config.Screen.CENTER_X, config.Screen.CENTER_Y-265);
             this.addChild(this._lifeLbl);
-             this._countLbl = new objects.Label("time: " +this._countdown,"30px Consolar", "#000000",config.Screen.CENTER_X-200, config.Screen.CENTER_Y-265);
+             this._countLbl = new objects.Label("time: " +this._counter,"30px Consolar", "#000000",config.Screen.CENTER_X-200, config.Screen.CENTER_Y-265);
             this.addChild(this._countLbl);
             this._scoreLbl = new objects.Label("score: " +this._score,"30px Consolar", "#000000",config.Screen.CENTER_X+200, config.Screen.CENTER_Y-265);
             this.addChild(this._scoreLbl);
             //added everything on stage
             stage.addChild(this);
-        
+            
            
 }
-
+        // public Spawn() :void{
+        //     this._counter +=  createjs.Ticker.interval;
+        //     while (this._counter< 60000.0){ 
+            
+        //     this.addChild(this._enemy);
+            
+        //     }
+        // }
         
         public update() : void {
             // Check collisions
             // for(let i of this._ship.getShots) {
             //     collision.check(i, this._enemy);
             // }
-            this._collision(this._bird,this._enemy);
+            
             this.time();
+           // this.Spawn();
+           this._healthpoints( this._collision(this._bird,this._enemy));
+           this._scorepoints(this._collision(this._bird, this._bread));
+           // this._collisionBread(this._bird, this._bread);
             //scrolls the background and checks if it is at the end to reset position
             this._bg.x-=4;
             if(this._bg.x<-800){
@@ -63,7 +78,7 @@ module scenes {
             }
             
             
-            // this.stage.update();
+             this.stage.update();
             this._bird.update();
             this._enemy.update();
             this._bread.update();
@@ -72,30 +87,65 @@ module scenes {
 
         //checks time and ends game after set interval
         public time():void {
-            this._timer += createjs.Ticker.interval;
-            if(this._timer > 60000.0){
+            this._timer += createjs.Ticker.interval/1000;
+             this._countdown=Math.floor(this._timer);
+             this._counter=60.0;
+            if(this._timer >61.0){
                 
             scene = config.Scene.GAMEOVER;
             changeScene();
-            
+                        
             }
-            console.log("time: "+ this._timer);
-            this._countdown -=(createjs.Ticker.interval/1000);
+           this._counter-=this._countdown;
+            console.log("time: "+ this._timer + " count: "+ this._countdown);
+            this._countLbl.text="time: "+ this._counter;
         }
         
         //collision check
-        public _collision(coll:objects.GameObject, objColliding:objects.GameObject) : void{
-            if(coll.tr_corner.x > objColliding.tl_corner.x && 
-                coll.tr_corner.y < objColliding.bl_corner.y &&
-                coll.br_corner.y > objColliding.tl_corner.y)
+        public _collision(coll:objects.GameObject, objColliding:objects.GameObject) : boolean{
+            // if(coll.tr_corner.x > objColliding.tl_corner.x && 
+            //     coll.tr_corner.y < objColliding.bl_corner.y &&
+            //     coll.br_corner.y > objColliding.tl_corner.y)
+            if(coll.x >=objColliding.x+ objColliding.width || coll.x + coll.width <= objColliding.x|| coll.y >= objColliding.y + objColliding.height|| coll.y + coll.height <=objColliding.y)
                  {
-                    this._life -= 1;
-                    console.log("Cloud HIT" + this._life);
-                    collision.destroy(this._enemy);
+                    this.test=false;
+                    //collision.destroy(this._enemy);
                     // this._bird.position=new objects.Vector2(config.Screen.WIDTH-650, config.Screen.CENTER_Y);
                 }
-            else {}
+            else {
+                    this.test=true;
+                   
+            }
+            return this.test;
         }
-        
+
+        public _healthpoints(colltest:boolean):void{
+            if(this.test==true){
+                     this._life -= 0.01;
+                     this._lifenum=Math.floor(this._life);
+                    console.log("Cloud HIT" + this._life);
+                    this._lifeLbl.text="life: "+this._lifenum;}
+        }
+        public _scorepoints(colltest:boolean):void{
+            if(this.test==true){
+                     this._score += 0.5;
+                     this._scorenum=Math.floor(this._score);
+                    console.log("Bread HIT" + this._score);
+                    this._scoreLbl.text="score: "+this._scorenum;}
+        }
+        //collision check
+//         public _collisionBread(coll:objects.GameObject, objColliding:objects.GameObject) : void{
+//             if(coll.tr_corner.x > objColliding.tl_corner.x && 
+//                 coll.tr_corner.y < objColliding.bl_corner.y &&
+//                 coll.br_corner.y > objColliding.tl_corner.y)
+//                  {
+//                     this._score += 100;
+//                     this._scoreLbl.text="score: "+ this._score;
+//                     console.log("Bread HIT" + this._score);
+// //collision.destroy(this._bread);
+//                     // this._bird.position=new objects.Vector2(config.Screen.WIDTH-650, config.Screen.CENTER_Y);
+//                 }
+//             else {}
+//         }
     }
 }

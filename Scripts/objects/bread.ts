@@ -19,7 +19,7 @@ module objects {
             super(imageString, "bread");
 
             this.name = "bread";
-            this.position = new objects.Vector2(config.Screen.WIDTH, Math.floor(Math.random()*450));
+            this.position = new objects.Vector2(config.Screen.WIDTH, Math.floor(Math.random()*400));
             this.regX = this.getBounds().width * 0.5;
             this.regY = this.getBounds().height * 0.5;
             this._speed = 4;

@@ -101,7 +101,7 @@ var objects;
             }
         };
         GameObject.prototype.destroy = function () {
-            // currentScene.removeChild(this);
+            currentScene.removeChild(this);
         };
         return GameObject;
     }(createjs.Sprite));

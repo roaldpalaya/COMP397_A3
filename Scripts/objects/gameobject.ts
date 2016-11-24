@@ -93,7 +93,7 @@ module objects {
 
         public destroy() : void {
             
-            // currentScene.removeChild(this);
+             currentScene.removeChild(this);
         }
     }
 }
