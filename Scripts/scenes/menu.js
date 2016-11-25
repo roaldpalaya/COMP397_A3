@@ -1,12 +1,14 @@
-/*
-    Scene module to group all user-defined scenes  under the same "namespace aka module"
-    Menu scene that contains all assets and functionality associated with the menu itself
-*/
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+/*
+    Scene module to group all user-defined scenes  under the same "namespace aka module"
+    Menu scene that contains all assets and functionality associated with the menu itself
+*/
+//Roald Palaya 300714999 
+//Last updated 11/24/2016
 var scenes;
 (function (scenes) {
     var Menu = (function (_super) {

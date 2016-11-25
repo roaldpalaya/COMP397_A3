@@ -1,4 +1,6 @@
 /// <reference path = "_reference.ts" />
+//Roald Palaya 300714999 
+//Last updated 11/24/2016
 // Global Variables
 var assets;
 var canvas;
@@ -12,6 +14,8 @@ var collision;
 var assetData = [
     { id: "Play_BG", src: "../../Assets/images/bg.png" },
     { id: "Menu_BG", src: "../../Assets/images/menuBG.png" },
+    { id: "Inst_BG", src: "../../Assets/images/instBg.png" },
+    { id: "Go_BG", src: "../../Assets/images/goBg.png" },
     { id: "PlayBtn", src: "../../Assets/images/playBtn.png" },
     { id: "InstBtn", src: "../../Assets/images/instBtn.png" },
     { id: "MenuBtn", src: "../../Assets/images/menuBtn.png" },

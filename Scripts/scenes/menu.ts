@@ -2,7 +2,8 @@
     Scene module to group all user-defined scenes  under the same "namespace aka module"
     Menu scene that contains all assets and functionality associated with the menu itself
 */
-
+//Roald Palaya 300714999 
+//Last updated 11/24/2016
 module scenes {
     export class Menu extends objects.Scene {
 

@@ -1,3 +1,6 @@
+//Roald Palaya 300714999 
+//Last updated 11/24/2016
+
 module scenes {
     export class Instruction extends objects.Scene {
 
@@ -9,12 +12,12 @@ module scenes {
         }
 
         public start() : void {
-            this._bg = new createjs.Bitmap(assets.getResult("Menu_BG"));
+            this._bg = new createjs.Bitmap(assets.getResult("Inst_BG"));
             this.addChild(this._bg);
             this._menuBtn=new objects.Button("MenuBtn", config.Screen.CENTER_X, config.Screen.CENTER_Y + 150);
             this.addChild(this._menuBtn);
             this._menuBtn.on("click", this._menuBtnClick, this);
-          
+            
             stage.addChild(this);
         }
 
