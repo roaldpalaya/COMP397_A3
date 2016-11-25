@@ -39,6 +39,7 @@ module scenes {
             //create and add enemy character
             this._enemy = new objects.Enemy("enemy");
             this.addChild(this._enemy);
+            
             //create and add bread character
             this._bread = new objects.Bread("bread");
             this.addChild(this._bread);
